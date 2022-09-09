@@ -2,7 +2,7 @@ $primary-color: #444;
 $secondary-color: #3399FF;
 $show-home-image: true;
 $home-image: url(../img/background.jpg); //.. because the resource is located outside of this scss folder!
-$background-opcaity: 0.4;
+$background-opcaity: 0.5;
 
 @mixin easeOut{
     transition: all 0.3s ease-out; //what, how fast/slow, how
@@ -29,6 +29,16 @@ $background-opcaity: 0.4;
         }
     }
 
+}
+
+// Set text color
+
+@function set-text-color($color){
+    @if (lightness($color) > 40){
+        @return #000;
+    }@else{
+        @return #fff;
+    }
 }
 
 
