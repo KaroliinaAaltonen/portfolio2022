@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "New portfolio 2022 ",
   "main": "index.js",
+  "homepage": "https://KaroliinaAaltonen.github.io/portfolio2022",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Karoliina Aaltonen",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "node-sass": "^7.0.3"
   }
 }
