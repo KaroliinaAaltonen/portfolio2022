@@ -282,6 +282,15 @@ main {
   main#home h1 {
     margin-top: 10vh;
     font-size: 14vw; }
+  main#about h1 {
+    margin-top: 10vh;
+    font-size: 14vw; }
+  main#work h1 {
+    margin-top: 10vh;
+    font-size: 14vw; }
+  main#contact {
+    margin-top: 10vh;
+    font-size: 14vw; }
   .projects {
     grid-template-columns: 1fr; }
   .boxes {
