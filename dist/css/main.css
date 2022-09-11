@@ -118,9 +118,11 @@ h1, h2, h3 {
   margin: 0;
   font-weight: 400; }
   h1.lg-heading, h2.lg-heading, h3.lg-heading {
-    font-size: 6rem; }
+    position: static;
+    font-size: 8vw; }
   h1.sm-heading, h2.sm-heading, h3.sm-heading {
-    margin-bottom: 2rem;
+    position: static;
+    margin-bottom: 6vw;
     padding: 0.2rem 1rem;
     background: rgba(73, 73, 73, 0.5); }
 
@@ -188,22 +190,25 @@ main {
       transition: all 0.3s ease-out; }
 
 .boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 1rem; }
-  .boxes div {
+  position: static;
+  width: 100%;
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto; }
+  .boxes .container1, .boxes .container2, .boxes .container3 {
+    position: static;
+    width: 100%;
     font-size: 2rem;
     border: 3px #fff solid;
     padding: 1.5rem 2.5rem;
     margin-bottom: 3rem;
     transition: all 0.3s ease-out; }
-    .boxes div:hover {
+    .boxes .container1:hover, .boxes .container2:hover, .boxes .container3:hover {
       padding: 0.5rem 1.5rem;
       background: #3399FF;
       color: #000; }
-      .boxes div:hover span {
+      .boxes .container1:hover span, .boxes .container2:hover span, .boxes .container3:hover span {
         color: #000; }
 
 .btn, .btn-dark, .btn-light {
@@ -239,6 +244,9 @@ main {
     grid-template-columns: repeat(3, 1fr); } }
 
 @media screen and (max-width: 768px) {
+  main#home h1 {
+    margin-top: 10vh;
+    font-size: 12vw; }
   main {
     align-items: center;
     text-align: center; }
@@ -272,6 +280,21 @@ main {
 
 @media screen and (max-width: 500px) {
   main#home h1 {
-    margin-top: 10vh; }
+    margin-top: 10vh;
+    font-size: 14vw; }
+  main#about h1 {
+    margin-top: 10vh;
+    font-size: 14vw; }
+  main#work h1 {
+    margin-top: 10vh;
+    font-size: 14vw; }
+  main#contact {
+    margin-top: 10vh;
+    font-size: 14vw; }
   .projects {
-    grid-template-columns: 1fr; } }
+    grid-template-columns: 1fr; }
+  .boxes {
+    display: inline-block;
+    grid-template-columns: 1fr; }
+    .boxes .container1, .boxes .container2, .boxes .container3 {
+      font-size: 4vw; } }

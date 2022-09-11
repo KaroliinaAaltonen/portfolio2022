@@ -21,11 +21,13 @@ h1, h2, h3 {
     font-weight: 400;       //not so thick font
 
     &.lg-heading{
-        font-size: 6rem;    //1 rem = 16pixels
+        position: static;
+        font-size: 8vw;    //1 rem = 16pixels
     }
 
     &.sm-heading{
-        margin-bottom: 2rem;
+        position: static;
+        margin-bottom: 6vw;
         padding: 0.2rem 1rem; //top&bottom left&right 
         background: rgba(lighten($primary-color, 2), 0.5);
     }
@@ -131,13 +133,16 @@ main{
 
 // Contact Page
 .boxes{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 1rem;
+    position: static;
+    width: 100%;
+    display: grid;
+    grid-gap: 0.7rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
 
-    div{
+    .container1, .container2, .container3{
+        position: static;
+        width: 100%;
         font-size: 2rem;
         border: 3px #fff solid;
         padding: 1.5rem 2.5rem;
