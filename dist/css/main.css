@@ -90,6 +90,52 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
+.about-info .detailed-list {
+  grid-area: detailed-list; /* Assign grid area */
+  list-style: none;
+  padding: 0;
+}
+  
+.about-info .detailed-list li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #3399FF;
+  
+}
+  
+.detailed-list {
+  display: none; /* Initially hide the detailed list */
+  margin-top: 1rem; /* Add margin for spacing */
+}
+  
+.detailed-list.show {
+  display: block; /* Show the detailed list when toggled */
+}
+
+.about-info .detailed-list-child-content {
+  grid-area: detailed-list-child-content; /* Assign grid area */
+  background: #515151; /* Background color */
+  padding: 0.5rem; /* Padding */
+  font-size: 1rem;
+  border-bottom: #3399FF 5px solid; /* Border */
+  color: #fff; /* Text color */
+}
+
+.detailed-list-child-content {
+  display: none; /* Initially hide the detailed list child */
+  color:#fff;
+}
+.detailed-list-child-content.show {
+  display: block;
+}
+
+.detailed-list-header-span {
+  font-size: 1.5rem;
+}
+
+.about-info .detailed-list-child-element {
+  text-align: left;
+}
 * {
   box-sizing: border-box; }
 
@@ -121,6 +167,7 @@ h1, h2, h3 {
     position: static;
     font-size: 8vw; }
   h1.sm-heading, h2.sm-heading, h3.sm-heading {
+    font-size: 6vw;
     position: static;
     margin-bottom: 6vw;
     padding: 0.2rem 1rem;
@@ -156,26 +203,61 @@ main {
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-areas: 'bioimage bio bio'
+ 'job-header job-header job-header'
+ 'job1 job2 job3'
+ 'job-header-detailed job-header-detailed job-header-detailed'
+ 'detailed-experience detailed-experience detailed-experience';
   grid-template-columns: repeat(3, 1fr); }
+
+
   .about-info .bio-image {
     grid-area: bioimage;
     margin: auto;
     border-radius: 50%;
     border: #3399FF 3px solid; }
-  .about-info .bio {
+
+
+  .about-info .bio,
+  .about-info .job-previous-header,
+  .about-info .job-detailed-header {
     grid-area: bio;
     font-size: 1.5rem; }
-  .about-info .job-1 {
-    grid-area: job1; }
-  .about-info .job-2 {
-    grid-area: job2; }
+    
+  .about-info .job-1,
+  .about-info .job-2,
   .about-info .job-3 {
-    grid-area: job3; }
-  .about-info .job {
     background: #515151;
     padding: 0.5rem;
-    border-bottom: #3399FF 5px solid; }
+    border-bottom: #3399FF 5px solid;
+  }
+
+  .about-info .job-1 {
+    grid-area: job1; 
+  }
+  .about-info .job-2 {
+    grid-area: job2; 
+  }
+  .about-info .job-3 {
+    grid-area: job3; 
+  }
+
+  .about-info .job-previous-header {
+  grid-area: job-header;
+}
+
+.about-info .detailed-experience {
+  grid-area: detailed-experience;
+  font-size: 1.5rem;
+}
+
+.about-info .detailed-list-header-p {
+  line-height: 1.2;
+  font-size: 1.1rem;
+}
+.about-info .job-detailed-header {
+  grid-area: job-header-detailed;
+}
 
 .projects {
   display: grid;
@@ -241,7 +323,13 @@ main {
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   .projects {
-    grid-template-columns: repeat(3, 1fr); } }
+    grid-template-columns: repeat(3, 1fr); }
+    .boxes {
+      display: inline-block;
+      grid-template-columns: 1fr; }
+      .boxes .container1, .boxes .container2, .boxes .container3 {
+        font-size: 3vw; } 
+      }
 
 @media screen and (max-width: 768px) {
   main#home h1 {
@@ -273,10 +361,27 @@ main {
       width: 150px;
       height: 150px; }
   .about-info {
-    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-areas: 'bioimage'  
+ 'bio'
+ 'job-header' 
+ 'job1'
+ 'job2'
+ 'job3'
+ 'job-header-detailed'
+ 'detailed-experience';
     grid-template-columns: 1fr; }
   .projects {
-    grid-template-columns: repeat(2, 1fr); } }
+    grid-template-columns: repeat(2, 1fr); }
+   .about-info .detailed-list-child-element {
+    font-size: 0.9rem;
+    }
+    .boxes {
+      display: inline-block;
+      grid-template-columns: 1fr; }
+      .boxes .container1, .boxes .container2, .boxes .container3 {
+        font-size: 3vw; }  
+  }
+  
 
 @media screen and (max-width: 500px) {
   main#home h1 {
@@ -293,6 +398,10 @@ main {
     font-size: 14vw; }
   .projects {
     grid-template-columns: 1fr; }
+  .about-info .detailed-list-child-element {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    }
   .boxes {
     display: inline-block;
     grid-template-columns: 1fr; }
