@@ -36,7 +36,11 @@ function toggleMenu() {
 // Toggle detailed list function
 function toggleDetailedList() {
     const detailedList = document.querySelector('.detailed-list');
-    detailedList.classList.toggle('show'); // Toggle the 'show' class
+    if (detailedList.classList.contains('show')) {
+        detailedList.classList.remove('show'); // Remove the 'show' class
+    } else {
+        detailedList.classList.add('show'); // Add the 'show' class
+    }
 }
 
 // Toggle detailed list element function
